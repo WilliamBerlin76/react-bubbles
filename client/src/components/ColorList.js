@@ -37,6 +37,17 @@ const ColorList = ({ colors, updateColors }) => {
 
   const deleteColor = color => {
     // make a delete request to delete this color
+    
+    axiosWithAuth()
+      .delete(`http://localhost:5000/api/colors/${color.id}`)
+      .then(res => {
+        console.log(res)
+        const newList = colors.filter(!color)
+        updateColors([...newList,res.data])
+      })
+    .catch(err => {
+      console.log('could not delete', err)
+    })
   };
 
   return (
@@ -44,7 +55,7 @@ const ColorList = ({ colors, updateColors }) => {
       <p>colors</p>
       <ul>
         {colors.map(color => (
-          <li key={color.color} onClick={() => editColor(color)}>
+          <li key={color.color} onClick={(e) => {editColor(color)}}>
             <span>
               <span className="delete" onClick={() => deleteColor(color)}>
                 x
