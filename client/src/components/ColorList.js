@@ -42,11 +42,12 @@ const ColorList = ({ colors, updateColors }) => {
       .delete(`http://localhost:5000/api/colors/${color.id}`)
       .then(res => {
         console.log(res)
-        const newList = colors.filter(!color)
-        updateColors([...newList,res.data])
+        const newList = colors.filter(entry => entry.id !== color.id)
+        updateColors([...newList])
       })
     .catch(err => {
       console.log('could not delete', err)
+      console.log(colors)
     })
   };
 
@@ -57,7 +58,7 @@ const ColorList = ({ colors, updateColors }) => {
         {colors.map(color => (
           <li key={color.color} onClick={(e) => {editColor(color)}}>
             <span>
-              <span className="delete" onClick={() => deleteColor(color)}>
+              <span className="delete" onClick={() => {deleteColor(color)}}>
                 x
               </span>{" "}
               {color.color}
