@@ -29,9 +29,21 @@ In this project you will create a login page and request a token from the server
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain what a token is used for.
+
+    tokens can be used for users to access private components in the app,
+    a private route can check if the user has a token before they are allowed route into a certain component
+
 - [ ] What steps can you take in your web apps to keep your data secure?
+
+    use private routes so only certain people have access to certain data
+
 - [ ] Describe how web servers work.
+
+    web servers stores the code that allows the website to run, and allows users to access it from different computers
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+  GET, POST, DELETE, PUT
 
 
 ## Project Set Up
@@ -94,3 +106,5 @@ Build a login form to authenticate your users.
 
 - [ ] Look at [Potion JS](https://potion.js.org/). This is the library used to display the color data
 - [ ] Play around with the data visualization happening in `Bubbles.js`. Have fun with this! Try different components from the library, or see if you can add props to change the UI a bit.
+
+William Berlin
